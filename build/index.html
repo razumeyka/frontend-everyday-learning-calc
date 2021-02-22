@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/main.css"> 
+    <title>Обучение</title>
+	<script src="/js/main.js"></script>
+</head>
+<body>
+	<main>
+		<div class="wrapper">
+			<div class="calculator">
+				<div class="calculator__caption">Shipping cost calculator</div>
+				<form action="" class="form">
+					<div class="calculator__heading">Package</div>
+					<fieldset class="calculator__row calculator__row_profile">
+						<div>
+							<div class="form__item">
+								<div id="width-range"></div>
+							</div>
+							<div class="form__item">
+								<input type="number" name="width" id="width-range-value" value="1" min="1" max="100" required>
+								<div class="form__label">Width, m.<span>*</span></div>
+							</div>
+						</div>
+						<div>
+							<div class="form__item">
+								<div id="height-range"></div>
+							</div>
+							<div class="form__item">
+								<input type="number" name="height" id="height-range-value" value="1" min="1" max="100" required>
+								<div class="form__label">Height, m.<span>*</span></div>
+							</div>
+						</div>
+						<div class="form__item">
+							<input type="number" name="weight" id="weight" value="1"  max="100" required>
+							<div class="form__label">Weight, kg<span>*</span></div>
+							<div class="form__details">Weight can be in the range of 1 - 100 kg</div>
+						</div>
+					</fieldset>
+					<div class="calculator__heading">Delivery details</div>
+					<fieldset class="calculator__row calculator__row_delivery">
+						<div class="form__item">
+							<input type="text" name="" id="date">
+							<div class="form__label">Date<span>*</span></div>
+						</div>
+						<div class="form__item">
+							<select class="js-choice" name="city" id="city-select">
+								<option>Choose city</option>
+							</select>
+							<div class="form__label">City<span>*</span></div>
+						</div>
+						<div>
+							<div class="form__item">
+								<div class="checkbox-round">
+									<input type="checkbox" id="delivery-checkbox" name="" value=""> 
+									<label for="delivery-checkbox">Delivery to the apartment</label> 
+								</div>
+							</div>
+							<div class="form__item form__item_address">
+								<input type="text" name="address" id="address" placeholder="Enter your address">
+								<div class="form__label">Address<span>*</span></div>
+							</div>
+						</div>
+					</fieldset>	
+					<div class="calculator__heading">Contacts</div>
+					<fieldset class="calculator__row">
+						<div class="form__item">
+							<input type="text" name="first-name" placeholder="Еnter your name" id="name" required>
+							<div class="form__label">Name<span>*</span></div>
+						</div>
+						<div class="form__item">
+							<input type="text" name="secont-name" placeholder="Еnter your surname" id="surname" required>
+							<div class="form__label">Surname<span>*</span></div>
+						</div>
+						<div class="form__item">
+							<input type="tel" name="phone" id="phone" placeholder="+375 00 000-00-00" required>
+							<div class="form__label">Phone<span>*</span></div>
+						</div>
+					</fieldset>
+					<fieldset class="calculator__row calculator__row_summary">
+						<div class="form__figure">
+							<div class="figure" id="figure">
+								<div class="figure__weight">1 kg</div>
+							</div>
+						</div>
+						<div class="form__item">
+							<textarea name="comment" id="comments" placeholder="Enter your comments"></textarea>
+							<div class="form__label">Comments</div>
+						</div>
+						<div>
+							<div class="form__item">
+								<input type="text" name="cost" value="1000" id="cost" readonly>
+								<div class="form__label">Cost, $</div>
+							</div>
+							<div class="form__item">
+								<div class="button js-popup-btn">Order</div>
+							</div>
+						</div>
+					</fieldset>
+					<div class="popup">
+						<div class="popup__content">
+							<div class="popup__caption">Confirm your order:</div>
+							<div class="popup__heading">Package:</div>
+							<div class="popup__param" id="popup-width">Width: <span></span></div>
+							<div class="popup__param" id="popup-height">Height: <span></span></div>
+							<div class="popup__param" id="popup-weight">Weight: <span></span></div>
+							<div class="popup__heading">Delivery:</div>
+							<div class="popup__param" id="popup-date">Date: <span></span></div>
+							<div class="popup__param" id="popup-city">Country: <span></span></div>
+							<div class="popup__param" id="popup-appartment">Delivery to the apartment: <span></span></div>
+							<div class="popup__param" id="popup-address">Address: <span></span></div>
+							<div class="popup__heading">Contacts:</div>
+							<div class="popup__param" id="popup-name">Name: <span></span></div>
+							<div class="popup__param" id="popup-surname">Surname: <span></span></div>
+							<div class="popup__param" id="popup-phone">Phone: <span></span></div>
+							<div class="popup__param" id="popup-comments">Comments: <span></span></div>
+							<div class="popup__param" id="popup-cost">Cost: <span></span></div>
+							<button class="popup__button button">Send order</button>
+							<div class="popup__close"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html> 
