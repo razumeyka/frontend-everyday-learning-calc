@@ -43,6 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return n = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     };
 
+    function minMaxValue(input, inputVal, figureVal) {
+        if ( inputVal > 100 ) {
+            inputVal = 100;
+        } else if (inputVal <= 0) {
+            inputVal = 1;
+        }
+        input.value = inputVal;
+    }
+
     function calculate(weightCost=0, deliveryCost=0) {
         let total = heightInput.value*1200 + widthInput.value*1000 + weightCost + deliveryCost;
         costInput.value = prettify(total);
@@ -77,8 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     widthInput.addEventListener('input', function(event) {
+        let widthVal = event.target.value;
+
+        minMaxValue(widthInput, widthVal);
         rangeWidth.noUiSlider.set(widthVal);
-        widthInputVal = event.target.value;
         calculate();
         figureDrawing();
     });
@@ -104,8 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     heightInput.addEventListener('input', function(event) {
+        let heightVal = event.target.value;
+
+        minMaxValue(heightInput, heightVal);
         rangeHeight.noUiSlider.set(heightVal);
-        heightInputVal = event.target.value;
         calculate();
         figureDrawing();
     });
@@ -119,17 +132,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if ( weightVal > 100 ) {
             weightVal = 100;
-            weightInput.value = weightVal;
         } else if (weightVal <= 0) {
-            weightVal = 1;
-            weightInput.value = weightVal;
+            weightVal= 1;
         }
-
+        weightInput.value = weightVal;
         figureWeight.innerHTML = `${weightVal} kg`;
 
         if ( weightVal > (weightMaxVal/2) ) {
             weightCost = 3500;
-        } 
+        }
         calculate(weightCost);
     });
 
@@ -153,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const picker = datepicker(dateInput, {
         formatter: (input, date, instance) => {
-            const value = date.toLocaleDateString()
-            input.value = value
+            const value = date.toLocaleDateString();
+            input.value = value;
         },
         minDate: new Date(Date.parse(new Date())+ 1000 * 3600 * 24 * 4),
         onSelect: (instance, date, minDate) => {
